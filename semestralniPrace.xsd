@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    xmlns="urn:vse.cz:steo08_sem_prace" targetNamespace="urn:vse.cz:steo08_sem_prace"
+    xmlns:s="urn:vse.cz:steo08_sem_prace">
+
+    <xs:element name="uzivatele" type="uzivateleType">
+        <xs:key name="idUzivateleKey">
+            <xs:selector xpath="s:uzivatel/s:osobni_udaje"/>
+            <xs:field xpath="@id_uzivatele"/>
+        </xs:key>
+        <xs:key name="idTrasyKey">
+            <xs:selector xpath="s:uzivatel/s:jizdenky/s:jizdenka/s:trasa"/>
+            <xs:field xpath="@id_trasy"/>
+        </xs:key>
+        <xs:key name="danovy_dokladKey">
+            <xs:selector xpath="s:uzivatel/s:jizdenky/s:jizdenka/s:nakup/s:polozky/s:polozka"/>
+            <xs:field xpath="@danovy_doklad"/>
+        </xs:key>
+    </xs:element>
+
+    <xs:complexType name="uzivateleType">
+        <xs:sequence>
+            <xs:element name="uzivatel" maxOccurs="unbounded" type="uzivatelType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="uzivatelType">
+        <xs:sequence>
+            <xs:element name="osobni_udaje" type="osobniUdajeType"/>
+            <xs:element name="jizdenky" type="jizdenkyType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="osobniUdajeType">
+        <xs:sequence>
+            <xs:element name="jmeno" type="neprazdnyString"/>
+            <xs:element name="prijmeni" type="neprazdnyString"/>
+            <xs:element name="datum" type="datumType"/>
+            <xs:element name="email" type="emailType"/>
+            <xs:element name="telefon" type="telefonType"/>
+            <xs:element name="sleva" type="slevaType" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="id_uzivatele" type="idUzivateleType" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="jizdenkyType">
+        <xs:sequence>
+            <xs:element name="jizdenka" type="jizdenkaType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="jizdenkaType">
+        <xs:sequence>
+            <xs:element name="trasa" type="trasaType"/>
+            <xs:element name="nakup" type="nakupType" minOccurs="0"/>
+            <xs:element name="dotaznik" type="dotaznikType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="dotaznikType">
+        <xs:sequence>
+            <xs:element name="hodnoceni" type="hodnoceniType"/>
+            <xs:element name="komentar" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="hodnoceniType">
+        <xs:sequence>
+            <xs:element name="celkove" type="hodnoticiType"/>
+            <xs:element name="personal" type="hodnoticiType"/>
+            <xs:element name="cistota" type="hodnoticiType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:simpleType name="hodnoticiType">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="nakupType">
+        <xs:sequence>
+            <xs:element name="polozky" type="polozkyType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="polozkyType">
+        <xs:sequence>
+            <xs:element name="polozka" type="polozkaType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="polozkaType">
+        <xs:sequence>
+            <xs:element name="nazev" type="neprazdnyString"/>
+            <xs:element name="cena" type="cenaType"/>
+            <xs:element name="uhrazeno" type="uhrazenoType"/>
+        </xs:sequence>
+        <xs:attribute name="danovy_doklad" type="danovyDokladType" use="required"/>
+    </xs:complexType>
+
+    <xs:simpleType name="danovyDokladType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([0-9]{12})"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="trasaType">
+        <xs:sequence>
+            <xs:element name="informace" type="informaceType"/>
+            <xs:element name="platba" type="platbaType"/>
+        </xs:sequence>
+        <xs:attribute name="id_trasy" type="idTrasyType" use="required"/>
+    </xs:complexType>
+
+    <xs:simpleType name="idTrasyType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([0-9]{5})-([0-9]{5})-([0-9]{5})"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="informaceType">
+        <xs:sequence>
+            <xs:element name="datum" type="datumType"/>
+            <xs:element name="odkud" type="neprazdnyString"/>
+            <xs:element name="kam" type="neprazdnyString"/>
+            <xs:element name="vyjezd" type="xs:time"/>
+            <xs:element name="prijezd" type="xs:time"/>
+            <xs:element name="trida" type="tridaType"/>
+            <xs:element name="sedadlo" type="sedadloType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="sedadloType">
+        <xs:sequence>
+            <xs:element name="vuz" type="vuzType"/>
+            <xs:element name="cislo" type="cisloType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="platbaType">
+        <xs:sequence>
+            <xs:element name="datum" type="datumType"/>
+            <xs:element name="cena" type="cenaType"/>
+            <xs:element name="uhrazeno" type="uhrazenoType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:simpleType name="slevaType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ISIC"/>
+            <xs:enumeration value="ZTP"/>
+            <xs:enumeration value="ITIC"/>
+            <xs:enumeration value="interrail-1st"/>
+            <xs:enumeration value="interrail-2nd"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="cenaType">
+        <xs:simpleContent>
+            <xs:extension base="xs:nonNegativeInteger">
+                <xs:attribute name="mena" type="menaType" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="datumType">
+        <xs:simpleContent>
+            <xs:extension base="xs:date">
+                <xs:attribute name="oznaceni" type="oznaceniType" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:simpleType name="oznaceniType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="nakup"/>
+            <xs:enumeration value="narozeni"/>
+            <xs:enumeration value="jizdenka"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="idUzivateleType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([0-9]{4})-([0-9]{4})"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="uhrazenoType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="hotovost"/>
+            <xs:enumeration value="karta"/>
+            <xs:enumeration value="kredity"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="emailType">
+        <xs:restriction base="xs:string">
+            <xs:pattern
+                value="([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})"
+            />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="telefonType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(\+[0-9]{3})([0-9]{9})"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="vuzType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="A"/>
+            <xs:enumeration value="B"/>
+            <xs:enumeration value="C"/>
+            <xs:enumeration value="D"/>
+            <xs:enumeration value="E"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tridaType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="economy"/>
+            <xs:enumeration value="economy+"/>
+            <xs:enumeration value="business"/>
+            <xs:enumeration value="premium"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="cisloType">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="220"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="neprazdnyString">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="menaType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="CZK"/>
+            <xs:enumeration value="USD"/>
+            <xs:enumeration value="EUR"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="pocetBoduType">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

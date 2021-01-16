@@ -1,0 +1,144 @@
+:root {
+    --primary: #3498db;
+    --secondary: #e0e0e0;
+    --background: #f6f7fb;
+    --black: #222;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+  }
+  
+  body {
+    background-color: var(--black);
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+  }
+
+  .container{
+    display:inline-block;
+    text-align: center;
+  }
+
+  .buttons{
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .zpet{
+    background-color: var(--secondary);
+    color: var(--black);
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 8px 30px;
+    font-size: 14px;
+    text-decoration: none;
+  }
+  .podrobnosti{
+    display: none;
+    background-color: var(--primary);
+    color: #fff;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 8px 30px;
+    font-size: 14px;
+    text-decoration: none;
+  }
+
+  .podrobnosti.activated{
+    display:inline-block;
+  }
+  
+  .podrobnosti:active {
+    transform: scale(0.98);
+  }
+  
+  .podrobnosti:focus {
+    outline: 0;
+  }
+
+  form {
+    position: relative;
+    width: 18rem;
+    padding-bottom: 5rem;
+    margin-bottom: 1rem;
+  
+  }
+  .chosen-value, .value-list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  .chosen-value {
+    text-transform: uppercase;
+    font-weight: 600;
+    height: 4rem;
+    font-size: 1.1rem;
+    padding: 1rem;
+    background-color: #fafcfd;
+    border: 2px solid var(--primary);
+    transition: 0.3s ease-in-out;
+  }
+  .chosen-value::-webkit-input-placeholder {
+    color: #333;
+  }
+  .chosen-value:hover {
+    background-color: var(--primary);
+    cursor: pointer;
+  }
+  .chosen-value:hover::-webkit-input-placeholder {
+    color: #333;
+  }
+  .chosen-value:focus, .chosen-value.open {
+    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.2);
+    outline: 0;
+    background-color: var(--primary);
+    color: #000;
+  }
+  .chosen-value:focus::-webkit-input-placeholder, .chosen-value.open::-webkit-input-placeholder {
+    color: #000;
+  }
+  .value-list {
+    padding-inline-start: 0px;
+    list-style: none;
+    margin-top: 4rem;
+    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    max-height: 0;
+    transition: 0.3s ease-in-out;
+  }
+  .value-list.open {
+    max-height: 320px;
+    overflow: auto;
+  }
+  .value-list li {
+    position: relative;
+    height: 4rem;
+    background-color: #fafcfd;
+    padding: 1rem;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    opacity: 1;
+  }
+  .value-list li:hover {
+    background-color:var(--primary);
+  }
+  .value-list li.closed {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    opacity: 0;
+  }

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uzivatele xmlns="urn:vse.cz:steo08_sem_prace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:vse.cz:steo08_sem_prace semestralniPrace.xsd">
+    <uzivatel>
+        <osobni_udaje id_uzivatele="1562-1251">
+            <jmeno>Ondřej</jmeno>
+            <prijmeni>Štěpán</prijmeni>
+            <datum oznaceni="narozeni">1999-06-28</datum>
+            <email>steo08@vse.cz</email>
+            <telefon>+420737194535</telefon>
+            <sleva>ISIC</sleva>
+        </osobni_udaje>
+        <jizdenky>
+            <jizdenka>
+                <trasa id_trasy="20291-20918-01699">
+                    <informace>
+                        <datum oznaceni="jizdenka">2020-12-14</datum>
+                        <odkud>Studénka</odkud>
+                        <kam>Praha, hl.n.</kam>
+                        <vyjezd>16:20:00</vyjezd>
+                        <prijezd>19:27:00</prijezd>
+                        <trida>economy</trida>
+                        <sedadlo>
+                            <vuz>D</vuz>
+                            <cislo>178</cislo>
+                        </sedadlo>
+                    </informace>
+                    <platba>
+                        <datum oznaceni="nakup">2020-12-13</datum>
+                        <cena mena="CZK">72</cena>
+                        <uhrazeno>kredity</uhrazeno>
+                    </platba>
+                </trasa>
+                <nakup>
+                    <polozky>
+                        <polozka danovy_doklad="113234900009">
+                            <nazev>Bageta se šunkou a sýrem</nazev>
+                            <cena mena="CZK">45</cena>
+                            <uhrazeno>hotovost</uhrazeno>
+                        </polozka>
+                        <polozka danovy_doklad="108783490004">
+                            <nazev>Sushi</nazev>
+                            <cena mena="CZK">119</cena>
+                            <uhrazeno>kredity</uhrazeno>
+                        </polozka>
+                    </polozky>
+                </nakup>
+                <dotaznik>
+                    <hodnoceni>
+                        <celkove>7</celkove>
+                        <personal>9</personal>
+                        <cistota>5</cistota>
+                    </hodnoceni>
+                    <komentar>Děkuji za příjemnou cestu.</komentar>
+                </dotaznik>
+            </jizdenka>
+            <jizdenka>
+                <trasa id_trasy="20264-46312-64032">
+                    <informace>
+                        <datum oznaceni="jizdenka">2020-12-12</datum>
+                        <odkud>Praha, hl.n.</odkud>
+                        <kam>Studénka</kam>
+                        <vyjezd>12:08:00</vyjezd>
+                        <prijezd>15:18:00</prijezd>
+                        <trida>economy+</trida>
+                        <sedadlo>
+                            <vuz>D</vuz>
+                            <cislo>164</cislo>
+                        </sedadlo>
+                    </informace>
+                    <platba>
+                        <datum oznaceni="nakup">2020-12-04</datum>
+                        <cena mena="CZK">59</cena>
+                        <uhrazeno>karta</uhrazeno>
+                    </platba>
+                </trasa>
+            </jizdenka>
+            <jizdenka>
+                <trasa id_trasy="20251-73110-88364">
+                    <informace>
+                        <datum oznaceni="jizdenka">2020-08-01</datum>
+                        <odkud>Praha, hl.n.</odkud>
+                        <kam>Hranice na Moravě</kam>
+                        <vyjezd>10:08:00</vyjezd>
+                        <prijezd>13:04:00</prijezd>
+                        <trida>economy</trida>
+                        <sedadlo>
+                            <vuz>A</vuz>
+                            <cislo>56</cislo>
+                        </sedadlo>
+                    </informace>
+                    <platba>
+                        <datum oznaceni="nakup">2020-07-30</datum>
+                        <cena mena="CZK">106</cena>
+                        <uhrazeno>kredity</uhrazeno>
+                    </platba>
+                </trasa>
+                <dotaznik>
+                    <hodnoceni>
+                        <celkove>8</celkove>
+                        <personal>8</personal>
+                        <cistota>8</cistota>
+                    </hodnoceni>
+                    <komentar>
+                        Průměrná cesta, děkuji za dochvilnost.
+                    </komentar>
+                </dotaznik>
+            </jizdenka>
+        </jizdenky>
+    </uzivatel>
+    <uzivatel>
+        <osobni_udaje id_uzivatele="1862-1282">
+            <jmeno>Andrea</jmeno>
+            <prijmeni>Matúšová</prijmeni>
+            <datum oznaceni="narozeni">1999-12-15</datum>
+            <email>andrea.matusova@gmail.com</email>
+            <telefon>+420731256987</telefon>
+        </osobni_udaje>
+        <jizdenky>
+            <jizdenka>
+                <trasa id_trasy="10588-39601-08955">
+                    <informace>
+                        <datum oznaceni="jizdenka">2019-08-04</datum>
+                        <odkud>Studénka</odkud>
+                        <kam>Pardubice</kam>
+                        <vyjezd>13:38:00</vyjezd>
+                        <prijezd>15:42:00</prijezd>
+                        <trida>business</trida>
+                        <sedadlo>
+                            <vuz>A</vuz>
+                            <cislo>16</cislo>
+                        </sedadlo>
+                    </informace>
+                    <platba>
+                        <datum oznaceni="nakup">2019-08-01</datum>
+                        <cena mena="CZK">526</cena>
+                        <uhrazeno>karta</uhrazeno>
+                    </platba>
+                </trasa>
+                <nakup>
+                    <polozky>
+                        <polozka danovy_doklad="113238852149">
+                            <nazev>Káva espresso</nazev>
+                            <cena mena="CZK">39</cena>
+                            <uhrazeno>hotovost</uhrazeno>
+                        </polozka>
+                        <polozka danovy_doklad="108783992145">
+                            <nazev>Salát Caesar</nazev>
+                            <cena mena="CZK">109</cena>
+                            <uhrazeno>hotovost</uhrazeno>
+                        </polozka>
+                        <polozka danovy_doklad="108793112245">
+                            <nazev>Ugova štáva</nazev>
+                            <cena mena="CZK">69</cena>
+                            <uhrazeno>karta</uhrazeno>
+                        </polozka>
+                    </polozky>
+                </nakup>
+                <dotaznik>
+                    <hodnoceni>
+                        <celkove>10</celkove>
+                        <personal>10</personal>
+                        <cistota>9</cistota>
+                    </hodnoceni>
+                    <komentar>Stoprocentní kvalita</komentar>
+                </dotaznik>
+            </jizdenka>
+            <jizdenka>
+                <trasa id_trasy="16685-98965-66841">
+                    <informace>
+                        <datum oznaceni="jizdenka">2020-01-02</datum>
+                        <odkud>Praha, hl.n.</odkud>
+                        <kam>Ostrava, hl.n.</kam>
+                        <vyjezd>12:08:00</vyjezd>
+                        <prijezd>18:18:00</prijezd>
+                        <trida>premium</trida>
+                        <sedadlo>
+                            <vuz>E</vuz>
+                            <cislo>212</cislo>
+                        </sedadlo>
+                    </informace>
+                    <platba>
+                        <datum oznaceni="nakup">2019-12-31</datum>
+                        <cena mena="CZK">268</cena>
+                        <uhrazeno>karta</uhrazeno>
+                    </platba>
+                </trasa>
+                <nakup>
+                    <polozky>
+                        <polozka danovy_doklad="108791587752">
+                            <nazev>Kofola 0,5l</nazev>
+                            <cena mena="CZK">35</cena>
+                            <uhrazeno>hotovost</uhrazeno>
+                        </polozka>
+                    </polozky>
+                </nakup>
+            </jizdenka>
+        </jizdenky>
+    </uzivatel>
+    <uzivatel>
+        <osobni_udaje id_uzivatele="1562-1530">
+            <jmeno>Ondřej</jmeno>
+            <prijmeni>Šesták</prijmeni>
+            <datum oznaceni="narozeni">2000-02-12</datum>
+            <email>seso00@vse.cz</email>
+            <telefon>+420603185211</telefon>
+            <sleva>interrail-1st</sleva>
+        </osobni_udaje>
+    </uzivatel>
+    <uzivatel>
+        <osobni_udaje id_uzivatele="1874-1212">
+            <jmeno>Petr</jmeno>
+            <prijmeni>Jeřábek</prijmeni>
+            <datum oznaceni="narozeni">1998-10-09</datum>
+            <email>petr.jer@seznam.cz</email>
+            <telefon>+420737889411</telefon>
+            <sleva>ZTP</sleva>
+        </osobni_udaje>
+        <jizdenky>
+            <jizdenka>
+                <trasa id_trasy="88951-15588-20148">
+                    <informace>
+                        <datum oznaceni="jizdenka">2015-06-15</datum>
+                        <odkud>Karviná</odkud>
+                        <kam>Přerov</kam>
+                        <vyjezd>13:17:00</vyjezd>
+                        <prijezd>15:01:00</prijezd>
+                        <trida>economy</trida>
+                        <sedadlo>
+                            <vuz>B</vuz>
+                            <cislo>57</cislo>
+                        </sedadlo>
+                    </informace>
+                    <platba>
+                        <datum oznaceni="nakup">2015-06-08</datum>
+                        <cena mena="CZK">78</cena>
+                        <uhrazeno>karta</uhrazeno>
+                    </platba>
+                </trasa>
+            </jizdenka>
+        </jizdenky>
+    </uzivatel>
+</uzivatele>

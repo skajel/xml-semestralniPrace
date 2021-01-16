@@ -1,0 +1,6 @@
+Téma semestrální práce:
+Rozhodl jsem se zpracovávat projeté jízdenky u dopravní spoleènosti.
+Ve výchozím XML dokumentu budou detailní informace o jízdence (datum, trasa, tøída, sedadlo, cena, ...).
+Informace o cestujícím (jméno, vìk, mail, slevová karta, ...).
+Informace o zboží, které si cestující zakoupil na palubì (kód, název, cena, ...)
+Pøípadnì odpovìdi na dotazník o spokojenosti cestujícícho (pokud ho cestující vyplnil).

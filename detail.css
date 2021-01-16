@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+:root {
+    --primary: #3498db;
+    --secondary: #e0e0e0;
+    --background: #f6f7fb;
+    --black: #222;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+  }
+  
+  body {
+    background-color: var(--black);
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:  100vh;
+    overflow: hidden;
+    margin: 0;
+  }
+
+  .detail-jizdenky {
+    max-width: 30rem;
+    padding:0 3rem;
+    border-right: 3px solid var(--primary);
+  }
+  
+  .nakup h3 {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .polozka {
+    padding-top: 1rem;
+  }
+  
+  .hodnoceni h4{
+    font-weight: normal;
+  }
+  
+  .hodnoceni{
+    padding-top: 1rem;
+  }
+  
+  .hodnoceni-container {
+   display: flex;
+   justify-content: space-evenly;
+   padding: 1rem 0;
+  }
+  
+  
+  .hodnota {
+    color: var(--secondary);
+    border-radius: 50%;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: 40px;
+    width: 40px;
+    border: 3px solid var(--primary);
+    margin: 0 15px 0;
+  }
+
+  .jizdenka {
+    max-width: 30rem;
+    padding:0 3rem;
+  }
+  
+  .trasa {
+    margin: 1rem 0 2rem;
+  }
+  
+  .informace {
+    font-size: 2rem;
+  
+  }
+  
+  .id {
+    padding-bottom: 1rem;
+    color: var(--primary);
+    text-align: right;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    font-weight: lighter;
+  }
+  
+  .nadpisy {
+    font-weight: 700;
+  }
+  
+  .content{
+    color: var(--secondary);
+    display: flex;
+  }
+  
+  .platba {
+    margin: 2rem 0;
+  }
