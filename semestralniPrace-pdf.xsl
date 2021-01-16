@@ -32,9 +32,9 @@
     
     <xsl:template match="osobni_udaje">
         <fo:block><xsl:value-of select="jmeno"/></fo:block>
-        <fo:block>Datum narozeni - <xsl:value-of select="datum"/></fo:block>
-        <fo:block>Email - <xsl:value-of select="email"/></fo:block>
-        <fo:block>Telefon - <xsl:value-of select="email"/></fo:block>
+        <fo:block>datum narozeni: <xsl:value-of select="datum"/></fo:block>
+        <fo:block>email: <xsl:value-of select="email"/></fo:block>
+        <fo:block>telefon: <xsl:value-of select="email"/></fo:block>
         
     </xsl:template>
     
