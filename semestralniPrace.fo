@@ -1,33 +1,291 @@
-<?xml version="1.0" encoding="UTF-8"?><fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format"><fo:layout-master-set><fo:simple-page-master master-name="my-page" page-height="210mm" page-width="297mm" margin="30px"><fo:region-body/></fo:simple-page-master></fo:layout-master-set><fo:page-sequence master-reference="my-page"><fo:flow flow-name="xsl-region-body">
-    <fo:block font-weight="600">Uživatel</fo:block><fo:block>
-            Ondřej
-            Štěpán
-            1999-06-28
-            steo08@vse.cz
-            +420737194535
-            ISIC
-        </fo:block>
-    <fo:block font-weight="600">Uživatel</fo:block><fo:block>
-            Andrea
-            Matúšová
-            1999-12-15
-            andrea.matusova@gmail.com
-            +420731256987
-        </fo:block>
-    <fo:block font-weight="600">Uživatel</fo:block><fo:block>
-            Ondřej
-            Šesták
-            2000-02-12
-            seso00@vse.cz
-            +420603185211
-            interrail-1st
-        </fo:block>
-    <fo:block font-weight="600">Uživatel</fo:block><fo:block>
-            Petr
-            Jeřábek
-            1998-10-09
-            petr.jer@seznam.cz
-            +420737889411
-            ZTP
-        </fo:block>
-</fo:flow></fo:page-sequence></fo:root>
+<?xml version="1.0" encoding="UTF-8"?>
+<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
+    <fo:layout-master-set>
+        <fo:simple-page-master master-name="my-page" page-height="210mm" page-width="297mm"
+            margin="30px">
+            <fo:region-body margin="70px" region-name="xsl-region-body"/>
+            <fo:region-before extent="2cm" region-name="xsl-region-before"/>
+        </fo:simple-page-master>
+    </fo:layout-master-set>
+    <fo:page-sequence master-reference="my-page">
+        <fo:static-content flow-name="xsl-region-before">
+            <fo:block font-weight="600" font-size="45px" color="#222" text-align="center"
+                    ><fo:external-graphic src="logo.png" content-height="scale-to-fit"
+                    content-width="scale-to-fit" height="35px" width="35px" scaling="non-uniform"/>
+                EXPRESS RAILWAYS </fo:block>
+        </fo:static-content>
+        <fo:flow flow-name="xsl-region-body">
+            <fo:block border="2px solid #222" padding-left="50px" padding-top="20px"
+                padding-bottom="20px" background-color="#222" color="#e0e0e0" margin="30px"
+                page-break-inside="avoid"><fo:block font-weight="600" font-size="18px"
+                    margin-bottom="5px">uživatel 1562-1251</fo:block><fo:block font-weight="600"
+                    >Ondřej Štěpán</fo:block><fo:block>datum narozeni:
+                    1999-06-28</fo:block><fo:block>email: steo08@vse.cz</fo:block><fo:block>telefon:
+                    +420737194535</fo:block><fo:block>sleva: ISIC</fo:block><fo:block
+                    background-color="#e0e0e0" color="#222" margin="20px 60px 20px 10px"
+                    padding="30px"><fo:block><fo:basic-link internal-destination="d1e24"
+                            >20291-20918-01699</fo:basic-link></fo:block><fo:block><fo:basic-link
+                            internal-destination="d1e105"
+                        >20264-46312-64032</fo:basic-link></fo:block><fo:block><fo:basic-link
+                            internal-destination="d1e146"
+                        >20251-73110-88364</fo:basic-link></fo:block></fo:block></fo:block>
+            <fo:block border="2px solid #222" padding-left="50px" padding-top="20px"
+                padding-bottom="20px" background-color="#222" color="#e0e0e0" margin="30px"
+                page-break-inside="avoid"><fo:block font-weight="600" font-size="18px"
+                    margin-bottom="5px">uživatel 1862-1282</fo:block><fo:block font-weight="600"
+                    >Andrea Matúšová</fo:block><fo:block>datum narozeni:
+                    1999-12-15</fo:block><fo:block>email:
+                    andrea.matusova@gmail.com</fo:block><fo:block>telefon:
+                    +420731256987</fo:block><fo:block background-color="#e0e0e0" color="#222"
+                    margin="20px 60px 20px 10px" padding="30px"><fo:block><fo:basic-link
+                            internal-destination="d1e221"
+                        >10588-39601-08955</fo:basic-link></fo:block><fo:block><fo:basic-link
+                            internal-destination="d1e312"
+                        >16685-98965-66841</fo:basic-link></fo:block></fo:block></fo:block>
+            <fo:block border="2px solid #222" padding-left="50px" padding-top="20px"
+                padding-bottom="20px" background-color="#222" color="#e0e0e0" margin="30px"
+                page-break-inside="avoid"><fo:block font-weight="600" font-size="18px"
+                    margin-bottom="5px">uživatel 1562-1530</fo:block><fo:block font-weight="600"
+                    >Ondřej Šesták</fo:block><fo:block>datum narozeni:
+                    2000-02-12</fo:block><fo:block>email: seso00@vse.cz</fo:block><fo:block>telefon:
+                    +420603185211</fo:block><fo:block>sleva: interrail-1st</fo:block></fo:block>
+            <fo:block border="2px solid #222" padding-left="50px" padding-top="20px"
+                padding-bottom="20px" background-color="#222" color="#e0e0e0" margin="30px"
+                page-break-inside="avoid"><fo:block font-weight="600" font-size="18px"
+                    margin-bottom="5px">uživatel 1874-1212</fo:block><fo:block font-weight="600"
+                    >Petr Jeřábek</fo:block><fo:block>datum narozeni:
+                    1998-10-09</fo:block><fo:block>email:
+                    petr.jer@seznam.cz</fo:block><fo:block>telefon:
+                    +420737889411</fo:block><fo:block>sleva: ZTP</fo:block><fo:block
+                    background-color="#e0e0e0" color="#222" margin="20px 60px 20px 10px"
+                    padding="30px"><fo:block><fo:basic-link internal-destination="d1e412"
+                            >88951-15588-20148</fo:basic-link></fo:block></fo:block></fo:block>
+            <fo:block id="d1e24" page-break-before="always"><fo:block margin-bottom="10px"
+                    background-color="#e0e0e0" padding="20px" border="2px solid #222"><fo:block
+                        font-weight="600">jízdenka č. 20291-20918-01699</fo:block><fo:block>datum
+                        cesty: 2020-12-14</fo:block><fo:block>odkud:
+                        Studénka</fo:block><fo:block>kam: Praha, hl.n.</fo:block><fo:block>výjezd:
+                        16:20:00</fo:block><fo:block>příjezd: 19:27:00</fo:block><fo:block>třída:
+                        economy</fo:block><fo:block>sedadlo: D178</fo:block></fo:block><fo:block
+                    background-color="#e0e0e0" padding="20px" border="2px solid #222"
+                    margin-bottom="10px"><fo:block font-weight="600"
+                        >Platba</fo:block><fo:block>datum: 2020-12-13</fo:block><fo:block>cena:
+                        72CZK</fo:block><fo:block>uhrazeno: kredity</fo:block></fo:block><fo:block
+                    background-color="#e0e0e0" padding="20px" border="2px solid #222"
+                    margin-bottom="10px"><fo:block font-weight="600">Nákup</fo:block><fo:table>
+                        <fo:table-header>
+                            <fo:table-row font-weight="600" font-size="15px">
+                                <fo:table-cell>
+                                    <fo:block>ID</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell>
+                                    <fo:block>Produkt</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell>
+                                    <fo:block>Cena</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell>
+                                    <fo:block>Uhrazeno</fo:block>
+                                </fo:table-cell>
+                            </fo:table-row>
+                        </fo:table-header>
+                        <fo:table-body>
+                            <fo:table-row>
+                                <fo:table-cell padding-right="25px">
+                                    <fo:block>113234900009</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell padding-right="25px">
+                                    <fo:block>Bageta se šunkou a sýrem</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell padding-right="25px">
+                                    <fo:block>45</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell padding-right="25px">
+                                    <fo:block>hotovost</fo:block>
+                                </fo:table-cell>
+                            </fo:table-row>
+                            <fo:table-row>
+                                <fo:table-cell padding-right="25px">
+                                    <fo:block>108783490004</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell padding-right="25px">
+                                    <fo:block>Sushi</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell padding-right="25px">
+                                    <fo:block>119</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell padding-right="25px">
+                                    <fo:block>kredity</fo:block>
+                                </fo:table-cell>
+                            </fo:table-row>
+                        </fo:table-body>
+                    </fo:table></fo:block><fo:block background-color="#e0e0e0" padding="20px"
+                    border="2px solid #222" margin-bottom="10px"><fo:block font-weight="600"
+                        >Dotazník</fo:block><fo:block>celkově: 7</fo:block><fo:block>personál:
+                        9</fo:block><fo:block>čistota: 5</fo:block><fo:block>Děkuji za příjemnou
+                        cestu.</fo:block></fo:block></fo:block>
+            <fo:block id="d1e105" page-break-before="always"><fo:block margin-bottom="10px"
+                    background-color="#e0e0e0" padding="20px" border="2px solid #222"><fo:block
+                        font-weight="600">jízdenka č. 20264-46312-64032</fo:block><fo:block>datum
+                        cesty: 2020-12-12</fo:block><fo:block>odkud: Praha,
+                        hl.n.</fo:block><fo:block>kam: Studénka</fo:block><fo:block>výjezd:
+                        12:08:00</fo:block><fo:block>příjezd: 15:18:00</fo:block><fo:block>třída:
+                        economy+</fo:block><fo:block>sedadlo: D164</fo:block></fo:block><fo:block
+                    background-color="#e0e0e0" padding="20px" border="2px solid #222"
+                    margin-bottom="10px"><fo:block font-weight="600"
+                        >Platba</fo:block><fo:block>datum: 2020-12-04</fo:block><fo:block>cena:
+                        59CZK</fo:block><fo:block>uhrazeno: karta</fo:block></fo:block></fo:block>
+            <fo:block id="d1e146" page-break-before="always"><fo:block margin-bottom="10px"
+                    background-color="#e0e0e0" padding="20px" border="2px solid #222"><fo:block
+                        font-weight="600">jízdenka č. 20251-73110-88364</fo:block><fo:block>datum
+                        cesty: 2020-08-01</fo:block><fo:block>odkud: Praha,
+                        hl.n.</fo:block><fo:block>kam: Hranice na Moravě</fo:block><fo:block>výjezd:
+                        10:08:00</fo:block><fo:block>příjezd: 13:04:00</fo:block><fo:block>třída:
+                        economy</fo:block><fo:block>sedadlo: A56</fo:block></fo:block><fo:block
+                    background-color="#e0e0e0" padding="20px" border="2px solid #222"
+                    margin-bottom="10px"><fo:block font-weight="600"
+                        >Platba</fo:block><fo:block>datum: 2020-07-30</fo:block><fo:block>cena:
+                        106CZK</fo:block><fo:block>uhrazeno: kredity</fo:block></fo:block><fo:block
+                    background-color="#e0e0e0" padding="20px" border="2px solid #222"
+                    margin-bottom="10px"><fo:block font-weight="600"
+                        >Dotazník</fo:block><fo:block>celkově: 8</fo:block><fo:block>personál:
+                        8</fo:block><fo:block>čistota: 8</fo:block><fo:block> Průměrná cesta, děkuji
+                        za dochvilnost. </fo:block></fo:block></fo:block>
+            <fo:block id="d1e221" page-break-before="always"><fo:block margin-bottom="10px"
+                    background-color="#e0e0e0" padding="20px" border="2px solid #222"><fo:block
+                        font-weight="600">jízdenka č. 10588-39601-08955</fo:block><fo:block>datum
+                        cesty: 2019-08-04</fo:block><fo:block>odkud:
+                        Studénka</fo:block><fo:block>kam: Pardubice</fo:block><fo:block>výjezd:
+                        13:38:00</fo:block><fo:block>příjezd: 15:42:00</fo:block><fo:block>třída:
+                        business</fo:block><fo:block>sedadlo: A16</fo:block></fo:block><fo:block
+                    background-color="#e0e0e0" padding="20px" border="2px solid #222"
+                    margin-bottom="10px"><fo:block font-weight="600"
+                        >Platba</fo:block><fo:block>datum: 2019-08-01</fo:block><fo:block>cena:
+                        526CZK</fo:block><fo:block>uhrazeno: karta</fo:block></fo:block><fo:block
+                    background-color="#e0e0e0" padding="20px" border="2px solid #222"
+                    margin-bottom="10px"><fo:block font-weight="600">Nákup</fo:block><fo:table>
+                        <fo:table-header>
+                            <fo:table-row font-weight="600" font-size="15px">
+                                <fo:table-cell>
+                                    <fo:block>ID</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell>
+                                    <fo:block>Produkt</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell>
+                                    <fo:block>Cena</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell>
+                                    <fo:block>Uhrazeno</fo:block>
+                                </fo:table-cell>
+                            </fo:table-row>
+                        </fo:table-header>
+                        <fo:table-body>
+                            <fo:table-row>
+                                <fo:table-cell padding-right="25px">
+                                    <fo:block>113238852149</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell padding-right="25px">
+                                    <fo:block>Káva espresso</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell padding-right="25px">
+                                    <fo:block>39</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell padding-right="25px">
+                                    <fo:block>hotovost</fo:block>
+                                </fo:table-cell>
+                            </fo:table-row>
+                            <fo:table-row>
+                                <fo:table-cell padding-right="25px">
+                                    <fo:block>108783992145</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell padding-right="25px">
+                                    <fo:block>Salát Caesar</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell padding-right="25px">
+                                    <fo:block>109</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell padding-right="25px">
+                                    <fo:block>hotovost</fo:block>
+                                </fo:table-cell>
+                            </fo:table-row>
+                            <fo:table-row>
+                                <fo:table-cell padding-right="25px">
+                                    <fo:block>108793112245</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell padding-right="25px">
+                                    <fo:block>Ugova štáva</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell padding-right="25px">
+                                    <fo:block>69</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell padding-right="25px">
+                                    <fo:block>karta</fo:block>
+                                </fo:table-cell>
+                            </fo:table-row>
+                        </fo:table-body>
+                    </fo:table></fo:block><fo:block background-color="#e0e0e0" padding="20px"
+                    border="2px solid #222" margin-bottom="10px"><fo:block font-weight="600"
+                        >Dotazník</fo:block><fo:block>celkově: 10</fo:block><fo:block>personál:
+                        10</fo:block><fo:block>čistota: 9</fo:block><fo:block>Stoprocentní
+                        kvalita</fo:block></fo:block></fo:block>
+            <fo:block id="d1e312" page-break-before="always"><fo:block margin-bottom="10px"
+                    background-color="#e0e0e0" padding="20px" border="2px solid #222"><fo:block
+                        font-weight="600">jízdenka č. 16685-98965-66841</fo:block><fo:block>datum
+                        cesty: 2020-01-02</fo:block><fo:block>odkud: Praha,
+                        hl.n.</fo:block><fo:block>kam: Ostrava, hl.n.</fo:block><fo:block>výjezd:
+                        12:08:00</fo:block><fo:block>příjezd: 18:18:00</fo:block><fo:block>třída:
+                        premium</fo:block><fo:block>sedadlo: E212</fo:block></fo:block><fo:block
+                    background-color="#e0e0e0" padding="20px" border="2px solid #222"
+                    margin-bottom="10px"><fo:block font-weight="600"
+                        >Platba</fo:block><fo:block>datum: 2019-12-31</fo:block><fo:block>cena:
+                        268CZK</fo:block><fo:block>uhrazeno: karta</fo:block></fo:block><fo:block
+                    background-color="#e0e0e0" padding="20px" border="2px solid #222"
+                    margin-bottom="10px"><fo:block font-weight="600">Nákup</fo:block><fo:table>
+                        <fo:table-header>
+                            <fo:table-row font-weight="600" font-size="15px">
+                                <fo:table-cell>
+                                    <fo:block>ID</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell>
+                                    <fo:block>Produkt</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell>
+                                    <fo:block>Cena</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell>
+                                    <fo:block>Uhrazeno</fo:block>
+                                </fo:table-cell>
+                            </fo:table-row>
+                        </fo:table-header>
+                        <fo:table-body>
+                            <fo:table-row>
+                                <fo:table-cell padding-right="25px">
+                                    <fo:block>108791587752</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell padding-right="25px">
+                                    <fo:block>Kofola 0,5l</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell padding-right="25px">
+                                    <fo:block>35</fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell padding-right="25px">
+                                    <fo:block>hotovost</fo:block>
+                                </fo:table-cell>
+                            </fo:table-row>
+                        </fo:table-body>
+                    </fo:table></fo:block></fo:block>
+            <fo:block id="d1e412" page-break-before="always"><fo:block margin-bottom="10px"
+                    background-color="#e0e0e0" padding="20px" border="2px solid #222"><fo:block
+                        font-weight="600">jízdenka č. 88951-15588-20148</fo:block><fo:block>datum
+                        cesty: 2015-06-15</fo:block><fo:block>odkud:
+                        Karviná</fo:block><fo:block>kam: Přerov</fo:block><fo:block>výjezd:
+                        13:17:00</fo:block><fo:block>příjezd: 15:01:00</fo:block><fo:block>třída:
+                        economy</fo:block><fo:block>sedadlo: B57</fo:block></fo:block><fo:block
+                    background-color="#e0e0e0" padding="20px" border="2px solid #222"
+                    margin-bottom="10px"><fo:block font-weight="600"
+                        >Platba</fo:block><fo:block>datum: 2015-06-08</fo:block><fo:block>cena:
+                        78CZK</fo:block><fo:block>uhrazeno: karta</fo:block></fo:block></fo:block>
+        </fo:flow>
+    </fo:page-sequence>
+</fo:root>
