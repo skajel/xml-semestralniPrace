@@ -1,0 +1,327 @@
+<html xmlns:ng="http://docbook.org/docbook-ng"><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Semestr&aacute;ln&iacute; pr&aacute;ce 4IZ238 - EXPRESS RAILWAYS</title><meta name="generator" content="DocBook XSL Stylesheets V1.79.2"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div lang="cs" class="book"><div class="titlepage"><div><div><h1 class="title"><a name="d5e1"></a>Semestr&aacute;ln&iacute; pr&aacute;ce 4IZ238 - EXPRESS RAILWAYS</h1></div><div><div class="author"><h3 class="author"><span class="firstname">Ond&#345;ej</span> <span class="surname">&#352;t&#283;p&aacute;n</span></h3><code class="email">&lt;<a class="email" href="mailto:steo08@vse.cz">steo08@vse.cz</a>&gt;</code></div></div></div><hr></div><div class="toc"><p><b>Obsah</b></p><dl class="toc"><dt><span class="preface"><a href="#d5e9">&Uacute;vod</a></span></dt><dt><span class="chapter"><a href="#d5e12">1. XML dokument, XML sch&eacute;ma (XSD) a Schematron (SCH)</a></span></dt><dd><dl><dt><span class="sect1"><a href="#d5e14">XML dokument</a></span></dt><dt><span class="sect1"><a href="#d5e132">XML sch&eacute;ma </a></span></dt><dt><span class="sect1"><a href="#d5e157">Schematron </a></span></dt></dl></dd><dt><span class="chapter"><a href="#d5e167">2. HTML a PDF transformace</a></span></dt><dd><dl><dt><span class="sect1"><a href="#d5e169">HTML transformace </a></span></dt><dt><span class="sect1"><a href="#d5e200">PDF transformace </a></span></dt></dl></dd><dt><span class="index"><a href="#d5e214">Rejst&#345;&iacute;k</a></span></dt></dl></div><div class="list-of-tables"><p><b>Seznam tabulek</b></p><dl><dt>1.1. <a href="#d5e20">Popis element&#367; XML dokumentu</a></dt></dl></div><div class="preface"><div class="titlepage"><div><div><h1 class="title"><a name="d5e9"></a>&Uacute;vod</h1></div></div></div><p>V r&aacute;mci semestr&aacute;ln&iacute; pr&aacute;ce ke kurzu 4IZ238 jsem se rozhodl zpracov&aacute;vat projet&eacute; j&iacute;zdenky
+            jednotliv&yacute;ch u&#382;ivatel&#367; v r&aacute;mci dopravn&iacute; spole&#269;nosti Express Railways. P&#345;edm&#283;tem bylo
+            vytvo&#345;en&iacute; XML dokumentu, jednotliv&yacute;ch sch&eacute;mat (.xsd, .sch), transformac&iacute; do PDF a HTML
+            dokumentu a nakonec samotnou dokumentaci v DocBooku.</p></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="d5e12"></a>Kapitola 1. XML dokument, XML sch&eacute;ma (XSD) a Schematron (SCH)</h1></div></div></div><div class="toc"><p><b>Obsah</b></p><dl class="toc"><dt><span class="sect1"><a href="#d5e14">XML dokument</a></span></dt><dt><span class="sect1"><a href="#d5e132">XML sch&eacute;ma </a></span></dt><dt><span class="sect1"><a href="#d5e157">Schematron </a></span></dt></dl></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d5e14"></a>XML dokument<a class="indexterm" name="d5e16"></a></h2></div></div></div><p>V XML dokumentu <code class="filename">semestralniPrace.xml</code> sleduji informace o
+                u&#382;ivatel&iacute;ch a jejich j&iacute;zdenk&aacute;ch.</p><div class="table"><a name="d5e20"></a><p class="title"><b>Tabulka 1.1. Popis element&#367; XML dokumentu</b></p><div class="table-contents"><table class="table" summary="Popis element&#367; XML dokumentu" border="1"><colgroup><col class="c1"><col class="c2"></colgroup><thead><tr><th>element</th><th>popis elementu</th></tr></thead><tbody><tr><td>uzivatele</td><td>ko&#345;enov&yacute; element</td></tr><tr><td>uzivatel</td><td>jednotliv&iacute; u&#382;ivatel&eacute; registrovan&iacute; ve spole&#269;nosti</td></tr><tr><td>osobni_udaje</td><td>element obsahuj&iacute;c&iacute; informace o u&#382;ivateli, atributem je ident
+                                    u&#382;ivatele, kter&yacute; mus&iacute; b&yacute;t unik&aacute;tn&iacute;</td></tr><tr><td>jmeno</td><td>jm&eacute;no u&#382;ivatele</td></tr><tr><td>prijmeni</td><td>p&#345;ijmen&iacute; u&#382;ivatele</td></tr><tr><td>datum</td><td>datum u&#382;ivatele/cesty/n&aacute;kupu l&iacute;stku, druh datumu je pozn&aacute;n
+                                    d&iacute;ky atributu</td></tr><tr><td>email</td><td>email u&#382;ivatele</td></tr><tr><td>telefon</td><td>telefon u&#382;ivatele</td></tr><tr><td>sleva</td><td>sleva u&#382;ivatele, jestli&#382;e m&aacute; na n&#283;jakou n&aacute;rok</td></tr><tr><td>jizdenky</td><td>element obsahuj&iacute;c&iacute; jednotliv&eacute; j&iacute;zdenky u&#382;ivatele</td></tr><tr><td>jizdenka</td><td>obsahuje trasu, p&#345;&iacute;padn&#283; n&aacute;kup polo&#382;ek &#269;i vypln&#283;n&iacute;
+                                    dotazn&iacute;ku</td></tr><tr><td>trasa</td><td>obsahuje informace o trase, atributem je ident, kter&yacute; mus&iacute;
+                                    b&yacute;t jedine&#269;n&yacute;</td></tr><tr><td>informace</td><td>obsahuje jednotliv&eacute; infromace</td></tr><tr><td>odkud</td><td>stanice odjezdu vlaku</td></tr><tr><td>kam</td><td>stanice p&#345;&iacute;jezdu vlaku</td></tr><tr><td>vyjezd</td><td>&#269;as odjezdu vlaku</td></tr><tr><td>prijezd</td><td>&#269;as p&#345;&iacute;jezdu vlaku</td></tr><tr><td>trida</td><td>t&#345;&iacute;da vlaku</td></tr><tr><td>sedadlo</td><td>obsahuje informace o sedadle</td></tr><tr><td>vuz</td><td>p&iacute;smeno vozu, v kter&eacute;m u&#382;ivatel sed&#283;l</td></tr><tr><td>cislo</td><td>&#269;&iacute;slo seda&#269;ky</td></tr><tr><td>platba</td><td>obsahuje informace o platb&#283; j&iacute;zdenky</td></tr><tr><td>cena</td><td>zn&aacute;zor&#328;uje cenu j&iacute;zdenky/polo&#382;ky, atributem je m&#283;na</td></tr><tr><td>uhrazeno</td><td>zn&aacute;zor&#328;uje zp&#367;sob &uacute;hrady</td></tr><tr><td>nakup</td><td>obsahuje informace o n&aacute;kupu polo&#382;ek b&#283;hem j&iacute;zdy</td></tr><tr><td>polozky</td><td>obsahuje jednotliv&eacute; polo&#382;ky</td></tr><tr><td>polozka</td><td>jednotliv&aacute; polo&#382;ka obsahuj&iacute;c&iacute; informace o dan&eacute;m n&aacute;kupu,
+                                    atributem je &#269;&iacute;slo da&#328;ov&eacute;ho dokladu</td></tr><tr><td>nazev</td><td>n&aacute;zev polozky</td></tr><tr><td>dotaznik</td><td>obsahuje informace o v&yacute;sledc&iacute;ch dotazn&iacute;ku</td></tr><tr><td>hodnoceni</td><td>obsahuje jednotliv&eacute; hodnocen&iacute;</td></tr><tr><td>celkove</td><td>&#269;&iacute;slo od 1 do 10 zn&aacute;zor&#328;uj&iacute;c&iacute; celkovou spokojenost
+                                    cestuj&iacute;c&iacute;ho</td></tr><tr><td>personal</td><td>&#269;&iacute;slo od 1 do 10 zn&aacute;zor&#328;uj&iacute;c&iacute; spokojenost s person&aacute;lem
+                                    cestuj&iacute;c&iacute;ho</td></tr><tr><td>cistota</td><td>&#269;&iacute;slo od 1 do 10 zn&aacute;zor&#328;uj&iacute;c&iacute; spokojenost s &#269;istotou
+                                    vlaku</td></tr><tr><td>komentar</td><td>obsahuje pozn&aacute;mku, kterou napsal cestuj&iacute;c&iacute; k
+                                    hodnocen&iacute;</td></tr></tbody></table></div></div><p><br class="table-break"></p></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d5e132"></a>XML sch&eacute;ma <a class="indexterm" name="d5e134"></a></h2></div></div></div><p>XML dokument <code class="filename">semestralniPrace.xml</code> je validov&aacute;n pomoc&iacute; XML
+                schematu (.xsd) <code class="filename">semestralniPrace.xsd</code>. Pro strukturu sch&eacute;matu
+                byl pou&#382;it p&#345;&iacute;stup slep&eacute;ho Ben&aacute;t&#269;ana. <a class="indexterm" name="d5e139"></a></p><p>V pr&aacute;ci jsou pou&#382;ity kontroly hodnot pomoc&iacute; konstrukt&#367; pattern. Nap&#345;&iacute;klad omezen&iacute;
+                hodnot telefonn&iacute;ho &#269;&iacute;sla, kter&eacute; odpov&iacute;d&aacute; telefonn&iacute;m &#269;&iacute;sl&#367;m &#268;esk&eacute; republiky.</p><div class="blockquote"><blockquote class="blockquote"><div class="literallayout"><p><code class="code">&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&nbsp;name="telefonType"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:restriction&nbsp;base="xs:string"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:pattern&nbsp;value="(\+[0-9]{3})([0-9]{9})"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:restriction&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code></p></div></blockquote></div><p>Pro kontrolu zadan&yacute;ch hodnot d&aacute;l&eacute; pou&#382;&iacute;v&aacute;m enumeration. Nap&#345;&iacute;klad pro t&#345;&iacute;du
+                vlaku.</p><div class="blockquote"><blockquote class="blockquote"><div class="literallayout"><p><code class="code">&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&nbsp;name="tridaType"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:restriction&nbsp;base="xs:string"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:enumeration&nbsp;value="economy"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:enumeration&nbsp;value="economy+"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:enumeration&nbsp;value="business"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:enumeration&nbsp;value="premium"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:restriction&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;</code></p></div></blockquote></div><p>V sch&eacute;matu je tak&eacute; pou&#382;ito omezen&iacute; na minim&aacute;ln&iacute; a maxim&aacute;ln&iacute; hodnotu. Konkr&eacute;tn&#283; v
+                n&aacute;sleduj&iacute;c&iacute;m p&#345;&iacute;klad&#283; je omezen&iacute; na &#269;&iacute;slo seda&#269;ky ve vlaku.</p><div class="blockquote"><blockquote class="blockquote"><div class="literallayout"><p><code class="code">&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:simpleType&nbsp;name="cisloType"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:restriction&nbsp;base="xs:integer"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:minInclusive&nbsp;value="1"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:maxInclusive&nbsp;value="220"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:restriction&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:simpleType&gt;</code></p></div></blockquote></div><p>Pomoc&iacute; referen&#269;n&iacute; integrity (unik&aacute;tn&iacute;ho kl&iacute;&#269;e) je zaji&#353;t&#283;no, &#382;e v dokumentu bude
+                unik&aacute;tn&iacute; ident u&#382;ivatele, trasy i da&#328;ov&eacute;ho dokladu.</p><div class="blockquote"><blockquote class="blockquote"><div class="literallayout"><p><code class="code">&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:element&nbsp;name="uzivatele"&nbsp;type="uzivateleType"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:key&nbsp;name="idUzivateleKey"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:selector&nbsp;xpath="s:uzivatel/s:osobni_udaje"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:field&nbsp;xpath="@id_uzivatele"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:key&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:key&nbsp;name="idTrasyKey"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:selector&nbsp;xpath="s:uzivatel/s:jizdenky/s:jizdenka/s:trasa"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:field&nbsp;xpath="@id_trasy"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:key&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:key&nbsp;name="danovy_dokladKey"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:selector&nbsp;xpath="s:uzivatel/s:jizdenky/s:jizdenka/s:nakup/s:polozky/s:polozka"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:field&nbsp;xpath="@danovy_doklad"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:key&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:element&gt;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code></p></div></blockquote></div></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d5e157"></a>Schematron <a class="indexterm" name="d5e159"></a></h2></div></div></div><p>Pro komplexn&#283;j&#353;&iacute; kontrolu datum&#367; byl pou&#382;it Schematron. Pro p&#345;ehlednost nebyl
+                zahrnut v souboru <code class="filename">semestralniPrace.xsd</code>. Nach&aacute;z&iacute; se tedy v
+                souboru <code class="filename">semestralniPrace.sch</code>. Je kontrolov&aacute;no, zda u&#382;ivatel jel
+                vlakem a&#382; pot&eacute;, co se narodil. D&aacute;le je kontrolov&aacute;n datum n&aacute;kupu j&iacute;zdenky, kter&aacute; mus&iacute;
+                b&yacute;t d&#345;&iacute;ve, &#269;i ve stejn&yacute; den jako samotn&aacute; cesta.</p><div class="blockquote"><blockquote class="blockquote"><div class="literallayout"><p><code class="code">&nbsp;&nbsp;&nbsp;&nbsp;&lt;sch:pattern&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;sch:title&gt;Kontrola&nbsp;datumu&nbsp;narozen&iacute;&lt;/sch:title&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;sch:rule&nbsp;context="s:uzivatel/s:uzivatel/s:osobni_udaje/s:datum"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;sch:assert&nbsp;test="current()&nbsp;&amp;lt;&nbsp;../../s:jizdenky/s:jizdenka/s:trasa/s:informace/s:datum"&gt;Datum&nbsp;narozen&iacute;&nbsp;mus&iacute;&nbsp;b&yacute;t&nbsp;men&#353;&iacute;&nbsp;ne&#382;&nbsp;datum&nbsp;cesty&lt;/sch:assert&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/sch:rule&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/sch:pattern&gt;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;sch:pattern&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;sch:title&gt;Kontrola&nbsp;datumu&nbsp;n&aacute;kupu&lt;/sch:title&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;sch:rule&nbsp;context="s:uzivatele/s:uzivatel/s:jizdenky/s:jizdenka/s:trasa/s:informace/s:datum"&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;sch:assert&nbsp;test="current()&nbsp;&amp;gt;=&nbsp;../../s:platba/s:datum"&gt;Datum&nbsp;cesty&nbsp;mus&iacute;&nbsp;b&yacute;t&nbsp;v&#283;t&#353;&iacute;&nbsp;nebo&nbsp;rovno&nbsp;datumu&nbsp;n&aacute;kupu&lt;/sch:assert&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/sch:rule&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/sch:pattern&gt;&nbsp;</code></p></div></blockquote></div></div></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a name="d5e167"></a>Kapitola 2. HTML a PDF transformace</h1></div></div></div><div class="toc"><p><b>Obsah</b></p><dl class="toc"><dt><span class="sect1"><a href="#d5e169">HTML transformace </a></span></dt><dt><span class="sect1"><a href="#d5e200">PDF transformace </a></span></dt></dl></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d5e169"></a>HTML transformace <a class="indexterm" name="d5e171"></a></h2></div></div></div><p>Pro transformaci do HTML dokumentu byl vytvo&#345;en
+                    soubor<code class="filename">semestralniPrace-html.xsl</code>. Transformace byla naps&aacute;na
+                ve verzi 2.0. Z nov&#283;j&#353;&iacute; verze XSLT 2.0 byl nap&#345;&iacute;klad pou&#382;it perform sort (v&#269;etn&#283;
+                uchov&aacute;n&iacute; v prom&#283;nn&eacute;) pro zji&#353;t&#283;n&iacute; posledn&iacute; j&iacute;zdenky u&#382;ivatele.</p><div class="blockquote"><blockquote class="blockquote"><div class="literallayout"><p><code class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:variable&nbsp;name="sorted"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:perform-sort&nbsp;select="jizdenka"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:sort&nbsp;select="trasa/informace/datum"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xsl:perform-sort&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xsl:variable&gt;</code></p></div></blockquote></div><p>
+            </p><p>D&aacute;le bylo pou&#382;ito generov&aacute;n&iacute; do v&iacute;ce v&yacute;stupn&iacute;ch soubor&#367; HTML pomoc&iacute; generate-id().</p><div class="blockquote"><blockquote class="blockquote"><div class="literallayout"><p><code class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:result-document&nbsp;href="{generate-id(.)}.html"&nbsp;format="html5"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;html&nbsp;lang="en"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta&nbsp;name="viewport"&nbsp;content="width=device-width,&nbsp;initial-scale=1.0"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link&nbsp;rel="stylesheet"&nbsp;href="seznam.css"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;&lt;xsl:value-of&nbsp;select="$TITLE"/&gt;&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class="container"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;form&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input&nbsp;class="chosen-value"&nbsp;type="text"&nbsp;value=""<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;placeholder="Select&nbsp;ticket"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&nbsp;class="value-list"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:apply-templates&nbsp;select="jizdenky/jizdenka"&nbsp;mode="selection"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/form&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class="buttons"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href="semestralniPrace-html.html"&nbsp;class="zpet"&gt;Zp&#283;t&lt;/a&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:apply-templates&nbsp;select="jizdenky/jizdenka"&nbsp;mode="seznam"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:apply-templates&nbsp;select="jizdenky/jizdenka"&nbsp;mode="oneByOne"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script&nbsp;src="seznam.js"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/html&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xsl:result-document&gt;</code></p></div></blockquote></div><p>
+            </p><p>K vizualizaci HTML soubor&#367; byly samoz&#345;ejm&#283; pou&#382;ity kask&aacute;dov&eacute; styly
+                    <code class="filename">seznam.css</code>, <code class="filename">style.css</code>,
+                    <code class="filename">detail.css</code>. N&aacute;sleduj&iacute;c&iacute; k&oacute;d zobrazuje k&oacute;d souboru
+                    <code class="filename">detail.css</code>.
+                <a class="indexterm" name="d5e187"></a></p><div class="blockquote"><blockquote class="blockquote"><div class="literallayout"><p><code class="code"><br>
+@import&nbsp;url('https://fonts.googleapis.com/css?family=Muli&amp;display=swap');<br>
+<br>
+:root&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;--primary:&nbsp;#3498db;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;--secondary:&nbsp;#e0e0e0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;--background:&nbsp;#f6f7fb;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;--black:&nbsp;#222;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;*&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;box-sizing:&nbsp;border-box;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;margin:&nbsp;0;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;body&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;background-color:&nbsp;var(--black);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;font-family:&nbsp;'Muli',&nbsp;sans-serif;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;display:&nbsp;flex;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;align-items:&nbsp;center;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;justify-content:&nbsp;center;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;height:&nbsp;&nbsp;100vh;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;overflow:&nbsp;hidden;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;margin:&nbsp;0;<br>
+&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;.detail-jizdenky&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;max-width:&nbsp;30rem;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;padding:0&nbsp;3rem;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;border-right:&nbsp;3px&nbsp;solid&nbsp;var(--primary);<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;.nakup&nbsp;h3&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;padding-bottom:&nbsp;1rem;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;border-bottom:&nbsp;1px&nbsp;solid&nbsp;rgba(255,&nbsp;255,&nbsp;255,&nbsp;0.2);<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;.polozka&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;padding-top:&nbsp;1rem;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;.hodnoceni&nbsp;h4{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;font-weight:&nbsp;normal;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;.hodnoceni{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;padding-top:&nbsp;1rem;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;.hodnoceni-container&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;display:&nbsp;flex;<br>
+&nbsp;&nbsp;&nbsp;justify-content:&nbsp;space-evenly;<br>
+&nbsp;&nbsp;&nbsp;padding:&nbsp;1rem&nbsp;0;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;.hodnota&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;color:&nbsp;var(--secondary);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;border-radius:&nbsp;50%;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;font-size:&nbsp;1.5rem;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;display:&nbsp;flex;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;justify-content:&nbsp;center;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;text-align:&nbsp;center;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;height:&nbsp;40px;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;40px;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;border:&nbsp;3px&nbsp;solid&nbsp;var(--primary);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;margin:&nbsp;0&nbsp;15px&nbsp;0;<br>
+&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;.jizdenka&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;max-width:&nbsp;30rem;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;padding:0&nbsp;3rem;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;.trasa&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;margin:&nbsp;1rem&nbsp;0&nbsp;2rem;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;.informace&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;font-size:&nbsp;2rem;<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;.id&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;padding-bottom:&nbsp;1rem;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;color:&nbsp;var(--primary);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;text-align:&nbsp;right;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;font-size:&nbsp;1rem;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;border-bottom:&nbsp;1px&nbsp;solid&nbsp;rgba(255,&nbsp;255,&nbsp;255,&nbsp;0.2);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;font-weight:&nbsp;lighter;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;.nadpisy&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;font-weight:&nbsp;700;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;.content{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;color:&nbsp;var(--secondary);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;display:&nbsp;flex;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;.platba&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;margin:&nbsp;2rem&nbsp;0;<br>
+&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code></p></div></blockquote></div><p>Pro animace pou&#382;&iacute;van&eacute; v HTML souborech je pou&#382;it skritptovac&iacute; jazyk JavaScript v
+                    souborech<code class="filename">script.js</code> a <code class="filename">seznam.js</code>.
+                JavaScipt <a class="indexterm" name="d5e195"></a>&#345;e&#353;&iacute; vyb&iacute;r&aacute;n&iacute;
+                u&#382;ivatele a j&iacute;zdenky, kterou chceme zobrazit.</p><div class="blockquote"><blockquote class="blockquote"><div class="literallayout"><p><code class="code">&nbsp;const&nbsp;inputField&nbsp;=&nbsp;document.querySelector('.chosen-value');<br>
+const&nbsp;dropdown&nbsp;=&nbsp;document.querySelector('.value-list');<br>
+const&nbsp;dropdownArray&nbsp;=&nbsp;[...document.querySelectorAll('li')];<br>
+let&nbsp;valueArray&nbsp;=&nbsp;[];<br>
+dropdownArray.forEach(item&nbsp;=&gt;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;valueArray.push(item.textContent);<br>
+});<br>
+<br>
+const&nbsp;closeDropdown&nbsp;=&nbsp;()&nbsp;=&gt;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dropdown.classList.remove('open');<br>
+}<br>
+<br>
+inputField.addEventListener('input',&nbsp;()&nbsp;=&gt;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dropdown.classList.add('open');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;let&nbsp;inputValue&nbsp;=&nbsp;inputField.value.toLowerCase();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(inputValue.length&nbsp;&gt;&nbsp;0)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(let&nbsp;j&nbsp;=&nbsp;0;&nbsp;j&nbsp;&lt;&nbsp;valueArray.length;&nbsp;j++)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!(inputValue.substring(0,&nbsp;inputValue.length)&nbsp;===&nbsp;valueArray[j].substring(0,&nbsp;inputValue.length).toLowerCase()))&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dropdownArray[j].classList.add('closed');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dropdownArray[j].classList.remove('closed');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(let&nbsp;i&nbsp;=&nbsp;0;&nbsp;i&nbsp;&lt;&nbsp;dropdownArray.length;&nbsp;i++)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dropdownArray[i].classList.remove('closed');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+});<br>
+<br>
+dropdownArray.forEach(item&nbsp;=&gt;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;item.addEventListener('click',&nbsp;(evt)&nbsp;=&gt;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inputField.value&nbsp;=&nbsp;item.textContent;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;content&nbsp;=&nbsp;document.querySelectorAll('.content')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content.forEach(content&nbsp;=&gt;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(item.id&nbsp;===&nbsp;content.id)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content.classList.add('activated')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content.classList.remove('activated')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;})<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dropdownArray.forEach(dropdown&nbsp;=&gt;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dropdown.classList.add('closed');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+})<br>
+<br>
+<br>
+inputField.addEventListener('focus',&nbsp;()&nbsp;=&gt;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inputField.placeholder&nbsp;=&nbsp;'Type&nbsp;to&nbsp;filter';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dropdown.classList.add('open');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dropdownArray.forEach(dropdown&nbsp;=&gt;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dropdown.classList.remove('closed');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+});<br>
+<br>
+inputField.addEventListener('blur',&nbsp;()&nbsp;=&gt;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inputField.placeholder&nbsp;=&nbsp;'Select&nbsp;user';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dropdown.classList.remove('open');<br>
+});<br>
+<br>
+document.addEventListener('click',&nbsp;(evt)&nbsp;=&gt;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;isDropdown&nbsp;=&nbsp;dropdown.contains(evt.target);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;isInput&nbsp;=&nbsp;inputField.contains(evt.target);<br>
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!isDropdown&nbsp;&amp;&amp;&nbsp;!isInput)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dropdown.classList.remove('open');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+});<br>
+<br>
+</code></p></div></blockquote></div><p>
+            </p></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d5e200"></a>PDF transformace <a class="indexterm" name="d5e202"></a></h2></div></div></div><p>Pro transformaci do PDF byl vytvo&#345;en soubor
+                    <code class="filename">semestralniPrace-pdf.xsl</code>. Ze souboru jako meziprodukt vy&#353;el
+                soubor <code class="filename">semestralniPrace.fo</code>. Soubor obsahuje z&aacute;hlav&iacute;, kter&eacute;
+                obsahuje n&aacute;zev a spole&#269;nosti.</p><div class="blockquote"><blockquote class="blockquote"><div class="literallayout"><p><code class="code">&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:template&nbsp;match="/"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:root&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:layout-master-set&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:simple-page-master&nbsp;master-name="my-page"&nbsp;page-height="210mm"&nbsp;page-width="297mm"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin="30px"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:region-body&nbsp;margin="70px"&nbsp;region-name="xsl-region-body"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:region-before&nbsp;extent="2cm"&nbsp;region-name="xsl-region-before"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/fo:simple-page-master&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/fo:layout-master-set&gt;<br>
+<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:page-sequence&nbsp;master-reference="my-page"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:static-content&nbsp;flow-name="xsl-region-before"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:block&nbsp;font-weight="600"&nbsp;font-size="45px"&nbsp;color="#222"&nbsp;text-align="center"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:external-graphic&nbsp;src="logo.png"&nbsp;content-height="scale-to-fit"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content-width="scale-to-fit"&nbsp;height="35px"&nbsp;width="35px"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scaling="non-uniform"/&gt;&nbsp;EXPRESS&nbsp;RAILWAYS&nbsp;&lt;/fo:block&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/fo:static-content&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:flow&nbsp;flow-name="xsl-region-body"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:apply-templates&nbsp;select="/uzivatele/uzivatel"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:apply-templates&nbsp;select="/uzivatele/uzivatel/jizdenky/jizdenka"&nbsp;mode="all"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/fo:flow&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/fo:page-sequence&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/fo:root&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xsl:template&gt;</code></p></div></blockquote></div><p>Soubor obsahuje seznam u&#382;ivatel&#367; v&#269;etn&#283; ident&#367; j&iacute;zdenek, kter&eacute; jsou v r&aacute;mci
+                p&#345;ehlednosti prov&aacute;z&aacute;ny se samostatn&yacute;mi j&iacute;zdenkami,jen&#382; se nach&aacute;z&iacute; samostatn&#283; na
+                konci PDF souboru.</p><div class="blockquote"><blockquote class="blockquote"><div class="literallayout"><p><code class="code">&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:template&nbsp;match="jizdenka"&nbsp;mode="seznam"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:block&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:basic-link&nbsp;internal-destination="{generate-id(.)}"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:value-of&nbsp;select="trasa/@id_trasy"/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/fo:basic-link&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/fo:block&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xsl:template&gt;</code></p></div></blockquote></div></div></div><div class="index"><div class="titlepage"><div><div><h1 class="title"><a name="d5e214"></a>Rejst&#345;&iacute;k</h1></div></div></div><div xmlns:xlink="http://www.w3.org/1999/xlink" class="index"><div class="indexdiv"><h3>C</h3><dl><dt id="ientry-d5e187">CSS, <a class="indexterm" href="#d5e169">HTML transformace </a></dt></dl></div><div class="indexdiv"><h3>H</h3><dl><dt id="ientry-d5e171">HTML
+                transformace, <a class="indexterm" href="#d5e169">HTML transformace </a></dt></dl></div><div class="indexdiv"><h3>J</h3><dl><dt id="ientry-d5e195">JavaScript, <a class="indexterm" href="#d5e169">HTML transformace </a></dt></dl></div><div class="indexdiv"><h3>P</h3><dl><dt id="ientry-d5e202">PDF
+                transformace, <a class="indexterm" href="#d5e200">PDF transformace </a></dt></dl></div><div class="indexdiv"><h3>S</h3><dl><dt id="ientry-d5e159">Schematron, <a class="indexterm" href="#d5e157">Schematron </a></dt><dt id="ientry-d5e139">slep&yacute;
+                    Ben&aacute;t&#269;an, <a class="indexterm" href="#d5e132">XML sch&eacute;ma </a></dt></dl></div><div class="indexdiv"><h3>X</h3><dl><dt id="ientry-d5e16">XML dokument, <a class="indexterm" href="#d5e14">XML dokument</a></dt><dt id="ientry-d5e134">XML sch&eacute;ma, <a class="indexterm" href="#d5e132">XML sch&eacute;ma </a></dt></dl></div></div></div></div></body></html>

@@ -71,7 +71,7 @@
                             </ul>
                         </form>
                         <div class="buttons">
-                            <a href="semestralniPrace.html" class="zpet">Zpět</a>
+                            <a href="semestralniPrace-html.html" class="zpet">Zpět</a>
                             <xsl:apply-templates select="jizdenky/jizdenka" mode="seznam"/>
                         </div>
                     </div>

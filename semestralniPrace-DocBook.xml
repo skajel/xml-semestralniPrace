@@ -1,0 +1,561 @@
+<book xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="cs"
+    xmlns:s="urn:vse.cz:steo08_sem_prace">
+    <info>
+        <title>Semestrální práce 4IZ238 - EXPRESS RAILWAYS</title>
+        <author>
+            <personname>
+                <firstname>Ondřej</firstname>
+                <surname>Štěpán</surname>
+            </personname>
+            <email>steo08@vse.cz</email>
+        </author>
+    </info>
+    <preface>
+        <title>Úvod</title>
+        <para>V rámci semestrální práce ke kurzu 4IZ238 jsem se rozhodl zpracovávat projeté jízdenky
+            jednotlivých uživatelů v rámci dopravní společnosti Express Railways. Předmětem bylo
+            vytvoření XML dokumentu, jednotlivých schémat (.xsd, .sch), transformací do PDF a HTML
+            dokumentu a nakonec samotnou dokumentaci v DocBooku.</para>
+    </preface>
+
+    <chapter>
+        <title>XML dokument, XML schéma (XSD) a Schematron (SCH)</title>
+        <sect1>
+            <title>XML dokument<indexterm><primary>XML dokument</primary></indexterm></title>
+            <para>V XML dokumentu <filename>semestralniPrace.xml</filename> sleduji informace o
+                uživatelích a jejich jízdenkách.<table frame="all">
+                    <title>Popis elementů XML dokumentu</title>
+                    <tgroup cols="2">
+                        <colspec colname="c1" colnum="1" colwidth="1*"/>
+                        <colspec colname="c2" colnum="2" colwidth="3.26*"/>
+                        <thead>
+                            <row>
+                                <entry>element</entry>
+                                <entry>popis elementu</entry>
+                            </row>
+                        </thead>
+                        <tbody>
+                            <row>
+                                <entry>uzivatele</entry>
+                                <entry>kořenový element</entry>
+                            </row>
+                            <row>
+                                <entry>uzivatel</entry>
+                                <entry>jednotliví uživatelé registrovaní ve společnosti</entry>
+                            </row>
+                            <row>
+                                <entry>osobni_udaje</entry>
+                                <entry>element obsahující informace o uživateli, atributem je ident
+                                    uživatele, který musí být unikátní</entry>
+                            </row>
+                            <row>
+                                <entry>jmeno</entry>
+                                <entry>jméno uživatele</entry>
+                            </row>
+                            <row>
+                                <entry>prijmeni</entry>
+                                <entry>přijmení uživatele</entry>
+                            </row>
+                            <row>
+                                <entry>datum</entry>
+                                <entry>datum uživatele/cesty/nákupu lístku, druh datumu je poznán
+                                    díky atributu</entry>
+                            </row>
+                            <row>
+                                <entry>email</entry>
+                                <entry>email uživatele</entry>
+                            </row>
+                            <row>
+                                <entry>telefon</entry>
+                                <entry>telefon uživatele</entry>
+                            </row>
+                            <row>
+                                <entry>sleva</entry>
+                                <entry>sleva uživatele, jestliže má na nějakou nárok</entry>
+                            </row>
+                            <row>
+                                <entry>jizdenky</entry>
+                                <entry>element obsahující jednotlivé jízdenky uživatele</entry>
+                            </row>
+                            <row>
+                                <entry>jizdenka</entry>
+                                <entry>obsahuje trasu, případně nákup položek či vyplnění
+                                    dotazníku</entry>
+                            </row>
+                            <row>
+                                <entry>trasa</entry>
+                                <entry>obsahuje informace o trase, atributem je ident, který musí
+                                    být jedinečný</entry>
+                            </row>
+                            <row>
+                                <entry>informace</entry>
+                                <entry>obsahuje jednotlivé infromace</entry>
+                            </row>
+                            <row>
+                                <entry>odkud</entry>
+                                <entry>stanice odjezdu vlaku</entry>
+                            </row>
+                            <row>
+                                <entry>kam</entry>
+                                <entry>stanice příjezdu vlaku</entry>
+                            </row>
+                            <row>
+                                <entry>vyjezd</entry>
+                                <entry>čas odjezdu vlaku</entry>
+                            </row>
+                            <row>
+                                <entry>prijezd</entry>
+                                <entry>čas příjezdu vlaku</entry>
+                            </row>
+                            <row>
+                                <entry>trida</entry>
+                                <entry>třída vlaku</entry>
+                            </row>
+                            <row>
+                                <entry>sedadlo</entry>
+                                <entry>obsahuje informace o sedadle</entry>
+                            </row>
+                            <row>
+                                <entry>vuz</entry>
+                                <entry>písmeno vozu, v kterém uživatel seděl</entry>
+                            </row>
+                            <row>
+                                <entry>cislo</entry>
+                                <entry>číslo sedačky</entry>
+                            </row>
+                            <row>
+                                <entry>platba</entry>
+                                <entry>obsahuje informace o platbě jízdenky</entry>
+                            </row>
+                            <row>
+                                <entry>cena</entry>
+                                <entry>znázorňuje cenu jízdenky/položky, atributem je měna</entry>
+                            </row>
+                            <row>
+                                <entry>uhrazeno</entry>
+                                <entry>znázorňuje způsob úhrady</entry>
+                            </row>
+                            <row>
+                                <entry>nakup</entry>
+                                <entry>obsahuje informace o nákupu položek během jízdy</entry>
+                            </row>
+                            <row>
+                                <entry>polozky</entry>
+                                <entry>obsahuje jednotlivé položky</entry>
+                            </row>
+                            <row>
+                                <entry>polozka</entry>
+                                <entry>jednotlivá položka obsahující informace o daném nákupu,
+                                    atributem je číslo daňového dokladu</entry>
+                            </row>
+                            <row>
+                                <entry>nazev</entry>
+                                <entry>název polozky</entry>
+                            </row>
+                            <row>
+                                <entry>dotaznik</entry>
+                                <entry>obsahuje informace o výsledcích dotazníku</entry>
+                            </row>
+                            <row>
+                                <entry>hodnoceni</entry>
+                                <entry>obsahuje jednotlivé hodnocení</entry>
+                            </row>
+                            <row>
+                                <entry>celkove</entry>
+                                <entry>číslo od 1 do 10 znázorňující celkovou spokojenost
+                                    cestujícího</entry>
+                            </row>
+                            <row>
+                                <entry>personal</entry>
+                                <entry>číslo od 1 do 10 znázorňující spokojenost s personálem
+                                    cestujícího</entry>
+                            </row>
+                            <row>
+                                <entry>cistota</entry>
+                                <entry>číslo od 1 do 10 znázorňující spokojenost s čistotou
+                                    vlaku</entry>
+                            </row>
+                            <row>
+                                <entry>komentar</entry>
+                                <entry>obsahuje poznámku, kterou napsal cestující k
+                                    hodnocení</entry>
+                            </row>
+                        </tbody>
+                    </tgroup>
+                </table></para>
+        </sect1>
+
+        <sect1>
+            <title>XML schéma <indexterm><primary>XML schéma</primary></indexterm></title>
+            <para>XML dokument <filename>semestralniPrace.xml</filename> je validován pomocí XML
+                schematu (.xsd) <filename>semestralniPrace.xsd</filename>. Pro strukturu schématu
+                byl použit přístup slepého Benátčana. <indexterm><primary>slepý
+                    Benátčan</primary></indexterm></para>
+            <para>V práci jsou použity kontroly hodnot pomocí konstruktů pattern. Například omezení
+                hodnot telefonního čísla, které odpovídá telefonním číslům České republiky.</para>
+            <blockquote>
+                <literallayout><code><![CDATA[    <xs:simpleType name="telefonType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(\+[0-9]{3})([0-9]{9})"/>
+        </xs:restriction>
+    </xs:simpleType>]]>
+            </code></literallayout>
+            </blockquote>
+            <para>Pro kontrolu zadaných hodnot dálé používám enumeration. Například pro třídu
+                vlaku.</para>
+            <blockquote>
+                <literallayout><code><![CDATA[    <xs:simpleType name="tridaType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="economy"/>
+            <xs:enumeration value="economy+"/>
+            <xs:enumeration value="business"/>
+            <xs:enumeration value="premium"/>
+        </xs:restriction>
+    </xs:simpleType>]]></code></literallayout>
+            </blockquote>
+            <para>V schématu je také použito omezení na minimální a maximální hodnotu. Konkrétně v
+                následujícím příkladě je omezení na číslo sedačky ve vlaku.</para>
+            <blockquote>
+                <literallayout><code><![CDATA[    <xs:simpleType name="cisloType">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="220"/>
+        </xs:restriction>
+    </xs:simpleType>]]></code></literallayout>
+            </blockquote>
+            <para>Pomocí referenční integrity (unikátního klíče) je zajištěno, že v dokumentu bude
+                unikátní ident uživatele, trasy i daňového dokladu.</para>
+            <blockquote>
+                <literallayout><code><![CDATA[    <xs:element name="uzivatele" type="uzivateleType">
+        <xs:key name="idUzivateleKey">
+            <xs:selector xpath="s:uzivatel/s:osobni_udaje"/>
+            <xs:field xpath="@id_uzivatele"/>
+        </xs:key>
+        <xs:key name="idTrasyKey">
+            <xs:selector xpath="s:uzivatel/s:jizdenky/s:jizdenka/s:trasa"/>
+            <xs:field xpath="@id_trasy"/>
+        </xs:key>
+        <xs:key name="danovy_dokladKey">
+            <xs:selector xpath="s:uzivatel/s:jizdenky/s:jizdenka/s:nakup/s:polozky/s:polozka"/>
+            <xs:field xpath="@danovy_doklad"/>
+        </xs:key>
+    </xs:element>]]> 
+                </code></literallayout>
+            </blockquote>
+        </sect1>
+        <sect1>
+            <title>Schematron <indexterm><primary>Schematron</primary></indexterm></title>
+            <para>Pro komplexnější kontrolu datumů byl použit Schematron. Pro přehlednost nebyl
+                zahrnut v souboru <filename>semestralniPrace.xsd</filename>. Nachází se tedy v
+                souboru <filename>semestralniPrace.sch</filename>. Je kontrolováno, zda uživatel jel
+                vlakem až poté, co se narodil. Dále je kontrolován datum nákupu jízdenky, která musí
+                být dříve, či ve stejný den jako samotná cesta.</para>
+            <blockquote>
+                <literallayout><code><![CDATA[    <sch:pattern>
+        <sch:title>Kontrola datumu narození</sch:title>        
+        <sch:rule context="s:uzivatel/s:uzivatel/s:osobni_udaje/s:datum">           
+            <sch:assert test="current() &lt; ../../s:jizdenky/s:jizdenka/s:trasa/s:informace/s:datum">Datum narození musí být menší než datum cesty</sch:assert>            
+        </sch:rule>       
+    </sch:pattern>  
+    
+    <sch:pattern>
+        <sch:title>Kontrola datumu nákupu</sch:title>        
+        <sch:rule context="s:uzivatele/s:uzivatel/s:jizdenky/s:jizdenka/s:trasa/s:informace/s:datum">           
+            <sch:assert test="current() &gt;= ../../s:platba/s:datum">Datum cesty musí být větší nebo rovno datumu nákupu</sch:assert>            
+        </sch:rule>       
+    </sch:pattern> ]]></code></literallayout>
+            </blockquote>
+        </sect1>
+    </chapter>
+    <chapter>
+        <title>HTML a PDF transformace</title>
+        <sect1>
+            <title>HTML transformace <indexterm><primary>HTML
+                transformace</primary></indexterm></title>
+            <para>Pro transformaci do HTML dokumentu byl vytvořen
+                    soubor<filename>semestralniPrace-html.xsl</filename>. Transformace byla napsána
+                ve verzi 2.0. Z novější verze XSLT 2.0 byl například použit perform sort (včetně
+                uchování v proměnné) pro zjištění poslední jízdenky uživatele.<blockquote>
+                    <literallayout><code><![CDATA[        <xsl:variable name="sorted">
+            <xsl:perform-sort select="jizdenka">
+                <xsl:sort select="trasa/informace/datum"/>
+            </xsl:perform-sort>
+        </xsl:variable>]]></code></literallayout>
+                </blockquote>
+            </para>
+            <para>Dále bylo použito generování do více výstupních souborů HTML pomocí generate-id().<blockquote>
+                    <literallayout><code><![CDATA[        <xsl:result-document href="{generate-id(.)}.html" format="html5">
+            <html lang="en">
+                <head>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                    <link rel="stylesheet" href="seznam.css"/>
+                    <title><xsl:value-of select="$TITLE"/></title>
+                </head>
+
+                <body>
+                    <div class="container">
+                        <form>
+                            <input class="chosen-value" type="text" value=""
+                                placeholder="Select ticket"/>
+                            <ul class="value-list">
+                                <xsl:apply-templates select="jizdenky/jizdenka" mode="selection"/>
+                            </ul>
+                        </form>
+                        <div class="buttons">
+                            <a href="semestralniPrace-html.html" class="zpet">Zpět</a>
+                            <xsl:apply-templates select="jizdenky/jizdenka" mode="seznam"/>
+                        </div>
+                    </div>
+
+                    <xsl:apply-templates select="jizdenky/jizdenka" mode="oneByOne"/>
+                    <script src="seznam.js"/>
+                </body>
+            </html>
+
+        </xsl:result-document>]]></code></literallayout>
+                </blockquote>
+            </para>
+
+            <para>K vizualizaci HTML souborů byly samozřejmě použity kaskádové styly
+                    <filename>seznam.css</filename>, <filename>style.css</filename>,
+                    <filename>detail.css</filename>. Následující kód zobrazuje kód souboru
+                    <filename>detail.css</filename>.
+                <indexterm><primary>CSS</primary></indexterm></para>
+            <blockquote>
+                <literallayout><code><![CDATA[
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+:root {
+    --primary: #3498db;
+    --secondary: #e0e0e0;
+    --background: #f6f7fb;
+    --black: #222;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+  }
+  
+  body {
+    background-color: var(--black);
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:  100vh;
+    overflow: hidden;
+    margin: 0;
+  }
+
+  .detail-jizdenky {
+    max-width: 30rem;
+    padding:0 3rem;
+    border-right: 3px solid var(--primary);
+  }
+  
+  .nakup h3 {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .polozka {
+    padding-top: 1rem;
+  }
+  
+  .hodnoceni h4{
+    font-weight: normal;
+  }
+  
+  .hodnoceni{
+    padding-top: 1rem;
+  }
+  
+  .hodnoceni-container {
+   display: flex;
+   justify-content: space-evenly;
+   padding: 1rem 0;
+  }
+  
+  
+  .hodnota {
+    color: var(--secondary);
+    border-radius: 50%;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: 40px;
+    width: 40px;
+    border: 3px solid var(--primary);
+    margin: 0 15px 0;
+  }
+
+  .jizdenka {
+    max-width: 30rem;
+    padding:0 3rem;
+  }
+  
+  .trasa {
+    margin: 1rem 0 2rem;
+  }
+  
+  .informace {
+    font-size: 2rem;
+  
+  }
+  
+  .id {
+    padding-bottom: 1rem;
+    color: var(--primary);
+    text-align: right;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    font-weight: lighter;
+  }
+  
+  .nadpisy {
+    font-weight: 700;
+  }
+  
+  .content{
+    color: var(--secondary);
+    display: flex;
+  }
+  
+  .platba {
+    margin: 2rem 0;
+  }
+                ]]></code></literallayout>
+            </blockquote>
+            <para>Pro animace používané v HTML souborech je použit skritptovací jazyk JavaScript v
+                    souborech<filename>script.js</filename> a <filename>seznam.js</filename>.
+                JavaScipt <indexterm><primary>JavaScript</primary></indexterm>řeší vybírání
+                uživatele a jízdenky, kterou chceme zobrazit.<blockquote>
+                    <literallayout><code><![CDATA[ const inputField = document.querySelector('.chosen-value');
+const dropdown = document.querySelector('.value-list');
+const dropdownArray = [...document.querySelectorAll('li')];
+let valueArray = [];
+dropdownArray.forEach(item => {
+    valueArray.push(item.textContent);
+});
+
+const closeDropdown = () => {
+    dropdown.classList.remove('open');
+}
+
+inputField.addEventListener('input', () => {
+    dropdown.classList.add('open');
+    let inputValue = inputField.value.toLowerCase();
+    if (inputValue.length > 0) {
+        for (let j = 0; j < valueArray.length; j++) {
+            if (!(inputValue.substring(0, inputValue.length) === valueArray[j].substring(0, inputValue.length).toLowerCase())) {
+                dropdownArray[j].classList.add('closed');
+            } else {
+                dropdownArray[j].classList.remove('closed');
+            }
+        }
+    } else {
+        for (let i = 0; i < dropdownArray.length; i++) {
+            dropdownArray[i].classList.remove('closed');
+        }
+    }
+});
+
+dropdownArray.forEach(item => {
+    item.addEventListener('click', (evt) => {
+        inputField.value = item.textContent;
+        const content = document.querySelectorAll('.content')
+        content.forEach(content => {
+            if (item.id === content.id) {
+                content.classList.add('activated')
+            } else {
+                content.classList.remove('activated')
+            }
+        })
+        dropdownArray.forEach(dropdown => {
+            dropdown.classList.add('closed');
+        });
+    });
+})
+
+
+inputField.addEventListener('focus', () => {
+    inputField.placeholder = 'Type to filter';
+    dropdown.classList.add('open');
+    dropdownArray.forEach(dropdown => {
+        dropdown.classList.remove('closed');
+    });
+});
+
+inputField.addEventListener('blur', () => {
+    inputField.placeholder = 'Select user';
+    dropdown.classList.remove('open');
+});
+
+document.addEventListener('click', (evt) => {
+    const isDropdown = dropdown.contains(evt.target);
+    const isInput = inputField.contains(evt.target);
+
+
+    if (!isDropdown && !isInput) {
+        dropdown.classList.remove('open');
+    }
+});
+
+]]></code></literallayout>
+                </blockquote>
+            </para>
+        </sect1>
+        <sect1>
+            <title>PDF transformace <indexterm><primary>PDF
+                transformace</primary></indexterm></title>
+            <para>Pro transformaci do PDF byl vytvořen soubor
+                    <filename>semestralniPrace-pdf.xsl</filename>. Ze souboru jako meziprodukt vyšel
+                soubor <filename>semestralniPrace.fo</filename>. Soubor obsahuje záhlaví, které
+                obsahuje název a společnosti.</para>
+            <blockquote>
+                <literallayout><code><![CDATA[    <xsl:template match="/">
+        <fo:root>
+            <fo:layout-master-set>
+                <fo:simple-page-master master-name="my-page" page-height="210mm" page-width="297mm"
+                    margin="30px">
+                    <fo:region-body margin="70px" region-name="xsl-region-body"/>
+                    <fo:region-before extent="2cm" region-name="xsl-region-before"/>
+                </fo:simple-page-master>
+            </fo:layout-master-set>
+
+
+            <fo:page-sequence master-reference="my-page">
+                <fo:static-content flow-name="xsl-region-before">
+                    <fo:block font-weight="600" font-size="45px" color="#222" text-align="center">
+                        <fo:external-graphic src="logo.png" content-height="scale-to-fit"
+                            content-width="scale-to-fit" height="35px" width="35px"
+                            scaling="non-uniform"/> EXPRESS RAILWAYS </fo:block>
+                </fo:static-content>
+                <fo:flow flow-name="xsl-region-body">
+                    <xsl:apply-templates select="/uzivatele/uzivatel"/>
+                    <xsl:apply-templates select="/uzivatele/uzivatel/jizdenky/jizdenka" mode="all"/>
+                </fo:flow>
+            </fo:page-sequence>
+        </fo:root>
+    </xsl:template>]]></code></literallayout>
+            </blockquote>
+            <para>Soubor obsahuje seznam uživatelů včetně identů jízdenek, které jsou v rámci
+                přehlednosti provázány se samostatnými jízdenkami,jenž se nachází samostatně na
+                konci PDF souboru.</para>
+            <blockquote>
+                <literallayout><code><![CDATA[    <xsl:template match="jizdenka" mode="seznam">
+        <fo:block>
+        <fo:basic-link internal-destination="{generate-id(.)}">
+            <xsl:value-of select="trasa/@id_trasy"/>
+        </fo:basic-link>
+        </fo:block>
+    </xsl:template>]]></code></literallayout>
+            </blockquote>
+        </sect1>
+    </chapter>
+
+    <index/>
+
+</book>
